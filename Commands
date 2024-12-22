@@ -1,0 +1,120 @@
+Django
+pip install django
+django-admin startproject demoproject .
+django-admin startapp demoapp
+python manage.py runserver
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+{%  load static  %}
+“{%  static   ‘  ‘   %}”
+“{%  static ‘login/css/styles’  %}”
+{%  block content  %}
+{%  endblock  %}
+{%  extends ‘admin/dash.html’  %}
+{%  block content  %}
+{%  endblock   %}
+“{%  url ‘login’  %}”
+{% url ‘deletenotes’ i.id %}
+pip install django-crispy-forms
+pip install crispy-bootstrap5
+python -m pip  install Pillow
+{%  load crispy_forms_filters  %}
+{% load crispy_forms_tags %}
+{%  csrf_token  %}
+{{form|crispy}}
+requirements.txt
+pip freeze
+pip freeze > requirements.txt
+
+
+Settings.py
+INSTALLED_APPS = [
+‘demoapp’,
+‘crispy_forms’,
+‘crispy_bootstrap5’
+]
+TEMPLATES = [
+DIRS : [os.path.join(BASE_DIR,’templates’)]
+]
+STATIC_URL = ‘static/’
+STATIC_DIRS = os.path.join(BASE_DIR,’static’)
+STATICFILES_DIRS = [os.path.join(BASE_DIR,’static’)]
+MEDIA_URL = ‘media/’
+MEDIA_ROOT = os.path.join(BASE_DIR,’media’)
+AUTH_USER_MODEL = ‘demoapp.Login’
+CRISPY_ALLOWED_TEMPLATE_PACKS = ‘bootstrap5’
+CRISPY_TEMPLATE_PACK = ‘bootstrap5’
+
+
+demoproject : urls.py
+urlpatterns = [
+path(‘’,include(‘demoapp.urls’))
+]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+demoapp : urls.py
+urlpatterns = [
+path(‘’,views.home,name=’home’),
+path(‘login’,views.login,name=’login’),
+path(‘delete/<int:id/’,views.delete,name=’delete’)
+]
+admin.py
+admin.site.register(models.Login)
+{% for I in data %}
+<tr>
+<td>{{forloop.counter}}</td>
+<td>{{i.name}}</td>
+<td><img src=”{{i.image.url}}” width=”100px” height=”100px”></td>
+</tr>
+{% endfor %}
+{% if i.status == 0 %}
+{% endif %}
+
+
+DRF
+pip install djangorestframework
+
+settings.py
+‘demoapp’
+‘rest_framework’
+
+
+MySQL
+show databases
+create database mydb
+show databases
+use mydb
+select * from demoapp_student
+pip install mysqlclient
+DATABASES = {
+‘defaults’ : {
+‘ENGIN’ : ‘django.db.backends.mysql’,
+‘NAME’ : ‘mydb’,
+‘USER’ : ‘root’,
+‘PASSWORD’ : ‘Sujika@123’,
+}
+}
+
+
+Git Change :
+git status
+git add .
+git status
+git commit -m “message”
+git push origin master
+or
+git push origin main
+
+
+React
+Commands:
+npx create-react-app my-app
+cd my-app
+npm start
+bootstrap link
+npm install react-bootstrap bootstrap
+npm i mdb-react-ui-kit
+npm install react-icons --save
+npm i react-router-dom
+npm i axios
+npm install @reduxjs/toolkit
+npm i react-redux
